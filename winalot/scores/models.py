@@ -11,10 +11,11 @@ class Tournament(models.Model):
         return self.name
 
 class Pool(models.Model):
+    name = models.CharField(max_length=255)
     number = models.PositiveIntegerField()
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name='pools')
     def __str__(self):
-        return self.number
+        return self.name
 
 
 class Team(models.Model):
@@ -31,8 +32,7 @@ class Match(models.Model):
     away_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='away_matches')
     home_score = models.PositiveIntegerField(null=True, blank=True)
     away_score = models.PositiveIntegerField(null=True, blank=True)
-    def __str__(self):
-        return self.id
+
 
 class Player(models.Model):
     name = models.CharField(max_length=255)
