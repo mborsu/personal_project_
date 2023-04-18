@@ -27,23 +27,16 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="background: #f74902;font-size: 33px;font-family: Catamaran, sans-serif;color: rgb(0,0,0);">Equipe</th>
-                                <th style="font-size: 33px;background: #f74902;color: rgb(0,0,0);">Date</th>
-                                <th style="font-size: 33px;background: #f74902;color: rgb(0,0,0);">Heure</th>
-                                <th style="font-size: 33px;background: #f74902;color: rgb(0,0,0);">Score</th>
-                                <th style="font-size: 33px;background: #f74902;color: rgb(0,0,0);">Poule</th>
+                                <th style="background: #f74902;font-size: 33px;font-family: Catamaran, sans-serif;color: rgb(0,0,0);">Poules</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {% for match in matchs %}
-                            	<tr>
-                                	<td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">{{match.home_team}}</td>
-                                	<td style="background: var(--bs-black);font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;color: #e1dada;">Date 1</td>
-                                	<td style="background: var(--bs-black);font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;color: #e1dada;">Heure</td>
-                                	<td style="background: var(--bs-black);font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;color: #e1dada;">Score 1</td>
-                                	<td style="background: var(--bs-black);font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;color: #e1dada;">Poule 1</td>
-                            	</tr>
-                            {% endfor %}
+                            <tr>
+                                <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">Poule 1</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">Poule 2</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#" style="--bs-primary: #ff0000;--bs-primary-rgb: 255,0,0;background: #d81e05;">Retour</a>
