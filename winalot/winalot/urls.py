@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('scores/', include('scores.urls')),
     path('', views.IndexView.as_view()),
+    path("accounts/", include("django.contrib.auth.urls")),
     #path('accounts/', include('django.contrib.auth.urls'))
 ]

@@ -32,6 +32,8 @@ class Match(models.Model):
     away_team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='away_matches')
     home_score = models.PositiveIntegerField(null=True, blank=True)
     away_score = models.PositiveIntegerField(null=True, blank=True)
+    pool = models.ForeignKey(Pool, on_delete=models.CASCADE, null=True)
+    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, null=True)
 
 
 class Player(models.Model):

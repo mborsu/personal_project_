@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="assets/css/Login-Form-Basic-icons.css">
 </head>
 
-<body>
+<body><span>{% load static %} </span><title>winalot 1</title><link rel="stylesheet" href="{% static 'scores/assets/bootstrap/css/bootstrap.min.css' %}"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&amp;display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;display=swap"><link rel="stylesheet" href="{% static 'scores/assets/css/Login-Form-Basic-icons.css' %}">
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom" style="background: linear-gradient(#000000 1%, black 35%, rgb(0,0,0) 86%), var(--bs-red);border-color: var(--bs-black);">
-        <div class="container"><a class="navbar-brand" href="#"><img class="rounded img-fluid" src="assets/img/Capture_d_écran_2023-04-14_165538-removebg-preview.png" width="144" height="31"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container"><a class="navbar-brand" href="#"><img class="rounded img-fluid" src="{% static 'scores/assets/img/Capture_d_écran_2023-04-14_165538-removebg-preview.png' %}" width="144" height="31"></a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive"></div>
         </div>
     </nav>
@@ -26,23 +26,29 @@
                     <div class="container">
                         <div class="row mb-5">
                             <div class="col-md-8 col-xl-6 text-center mx-auto">
-                                <h2 style="color: var(--bs-white);">Connexion</h2>
-                                <p style="color: var(--bs-white);">Connectez vous pour garder en favori vos équipes préférées et commenter les résultats de match</p>
+                                <h2 style="color: var(--bs-black);">Connexion</h2>
+                                <p style="color: var(--bs-black);font-size: 19px;">Connectez vous pour garder en favori vos équipes préférées et commenter les résultats de match</p>
                             </div>
                         </div>
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-6 col-xl-4">
                                 <div class="card mb-5">
-                                    <div class="card-body d-flex flex-column align-items-center">
+                                    <div class="card-body d-flex flex-column align-items-center" style="background: var(--bs-white);border-radius: 13px;border-width: 6px;border-color: var(--bs-white);">
                                         <div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-person">
                                                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
                                             </svg></div>
-                                        <form class="text-center" method="post">
-                                            <div class="mb-3"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-                                            <div class="mb-3"><input class="form-control" type="password" name="password" placeholder="Password"></div>
-                                            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="background: rgb(238,9,9);">Login</button></div>
-                                            <p class="text-muted">Mot de passe oublié ?</p>
-                                        </form>
+                                        
+
+                                            <form method="post" action="{% url 'login' %}">
+                                                {% csrf_token %}
+                                                {{ form }}
+                                                <input type="submit" value="login">
+                                                <input type="hidden" name="next" value="{{ next }}">
+                                                </form>
+
+
+
+
                                     </div>
                                 </div>
                             </div>
