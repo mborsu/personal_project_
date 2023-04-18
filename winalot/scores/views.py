@@ -35,5 +35,6 @@ def detail_tournament(request, tournament_id):
         'matchs': matchs,
     }
     # Rendu de la vue avec les données
-    return render(request, 'detail.html', context)
+    return render(request, 'scores/detail.html', context)
+
 

@@ -21,10 +21,11 @@ class Pool(models.Model):
 class Team(models.Model):
     name = models.CharField(max_length=255)
     coach_name = models.CharField(max_length=255)
-    pool = models.ForeignKey(Pool, on_delete=models.CASCADE, related_name='teams')
+    pool = models.ForeignKey(Pool, on_delete=models.CASCADE, null=True)
+    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, null=True)
     def __str__(self):
         return self.name
-
+ 
 class Match(models.Model):
     date_time = models.DateTimeField()
     location = models.CharField(max_length=255)
