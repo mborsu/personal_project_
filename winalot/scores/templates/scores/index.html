@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - WINALOT</title>
+    <meta name="description" content="Scores Website">
+    <link rel="stylesheet" href="{% static 'scores/assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="{% static 'scores/assets/css/Login-Form-Basic-icons.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom" style="background: linear-gradient(#000000 1%, black 35%, rgb(0,0,0) 86%), var(--bs-red);border-color: var(--bs-black);">
+        <div class="container"><a class="navbar-brand" href="#"><img class="rounded img-fluid" src="{% static 'scores/assets/img/Capture_d_écran_2023-04-14_165538-removebg-preview.png' %}" width="144" height="31"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="text-center masthead">
+        <div class="masthead-content" style="--bs-primary: #ff0000;--bs-primary-rgb: 255,0,0;--bs-secondary: #450202;--bs-secondary-rgb: 69,2,2;--bs-success: #000000;--bs-success-rgb: 0,0,0;--bs-body-bg: var(--bs-red);">
+            <div class="container">
+                <h1 class="masthead-heading mb-0"><span style="color: rgb(0, 0, 0);">Le Site pour tous les scores de Pétanque</span></h1>
+                <h2 class="masthead-subheading mb-0"><span style="color: rgb(0, 0, 0);">La vie est un jeu mais la pétanque c'est sérieux</span></h2><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#" style="--bs-primary: #ff0000;--bs-primary-rgb: 255,0,0;background: #d81e05;">Allez Fanny</a>
+            </div>
+        </div>
+        <div class="bg-circle-1 bg-circle" style="--bs-primary: #920000;--bs-primary-rgb: 146,0,0;--bs-body-bg: var(--bs-btn-disabled-color);"></div>
+        <div class="bg-circle-2 bg-circle"></div>
+        <div class="bg-circle-3 bg-circle"></div>
+        <div class="bg-circle-4 bg-circle"></div>
+    </header>
+    <section>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="background: var(--bs-secondary);font-family: Catamaran, sans-serif;font-weight: bold;font-size: 26px;text-align: center;border-color: var(--bs-red);">Tournois</th>
+                        <th style="background: var(--bs-secondary);font-family: Catamaran, sans-serif;font-weight: bold;font-size: 26px;text-align: center;border-color: var(--bs-red);">Nombre de poule</th>
+                        <th style="background: var(--bs-secondary);font-family: Catamaran, sans-serif;font-weight: bold;font-size: 26px;text-align: center;border-color: var(--bs-red);">Nombre d'équipe par poule</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tournament in tournament_list %}
+                        <tr>
+
+                            <td style="font-family: Catamaran, sans-serif;font-weight: bold;font-size: 22px;">{{tournament.name}}</td>
+                            <td style="font-family: Catamaran, sans-serif;font-size: 22px;">{{tournament.num_pools}}</td>
+                            <td style="font-family: Catamaran, sans-serif;font-size: 22px;">{{tournament.num_teams_per_pool}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><img class="rounded img-fluid" src="{% static 'scores/assets/img/winalot-removebg-preview.png' %}"></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4">En parlant du site WINALOT</h2>
+                        <p><br>Bienvenue sur notre site de score de tournois de pétanque, le choix idéal pour suivre les résultats en direct et les classements de vos joueurs préférés. Nous sommes fiers de notre expansion internationale et nous sommes impatients de partager notre passion avec le monde entier.<br><br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5"><img class="rounded-circle img-fluid" src="{% static 'scores/assets/img/jd-x-211130-038.jpg' %}" style="margin-top: 0px;padding-top: 0px;" width="1200" height="1200"></div>
+                </div>
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5" style="padding-left: 8px;">
+                        <h2 class="display-4" style="padding-left: 0px;">Nous, les créateurs</h2>
+                        <p>Nous sommes une équipe de créateurs passionnés par la pétanque depuis notre plus jeune âge. Notre amour pour ce sport nous a inspiré à créer un site de score innovant qui permet aux fans de suivre les tournois en direct. Nous sommes déterminés à faire évoluer la pétanque à travers le monde.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><img class="rounded-circle img-fluid" src="{% static 'scores/assets/img/336784996_1192088298114503_8257474678527394424_n.jpg' %}"></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4">Là où tout a commencé</h2>
+                        <p>L'idée de notre site est née au club de pétanque de Supaero, lorsque nous avons voulu garder une trace des scores de nos matchs. Nous avons rapidement réalisé que notre solution pourrait être utile pour tous les amateurs de pétanque, et avons décidé de créer un site de score accessible à tous.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="py-5 bg-black">
+        <div class="container">
+            <p class="text-center text-white m-0 small">Copyright&nbsp;© WINALOT 2023</p>
+        </div>
+    </footer>
+    <script src="{% static 'scores/assets/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>
