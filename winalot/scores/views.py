@@ -13,3 +13,16 @@ class IndexView(generic.ListView):
         print (f"tournaments={tournaments}")
         return tournaments
     
+class DetailView(generic.DetailView):
+    template_name = 'scores/detail.html'
+    
+    def get_queryset(self):
+        """
+        get details of the tournament
+        """
+        return Tournament.objects.order_by('name')
+
+
+    
+    
+    

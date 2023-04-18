@@ -48,7 +48,7 @@
                     {% for tournament in tournament_list %}
                         <tr>
 
-                            <td style="font-family: Catamaran, sans-serif;font-weight: bold;font-size: 22px;">{{tournament.name}}</td>
+                            <td style="font-family: Catamaran, sans-serif;font-weight: bold;font-size: 22px;"><a href="{% url 'scores:tournament_detail' tournament.id %}">{{tournament.name}}</a></td>
                             <td style="font-family: Catamaran, sans-serif;font-size: 22px;">{{tournament.num_pools}}</td>
                             <td style="font-family: Catamaran, sans-serif;font-size: 22px;">{{tournament.num_teams_per_pool}}</td>
                         </tr>
