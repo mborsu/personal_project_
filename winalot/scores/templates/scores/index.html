@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
                     {% if user.is_authenticated %}
-                        <p class="navbar-text" style="margin-right: 20px;">Pétanquement votre, {{ user.username }}</p>
+                        <p class="navbar-text" style="margin-right: 20px;">Pétanquement Votre, {{ user.username }}</p>
                         <li class="nav-item"style="margin-top: 4px;"><a class="nav-link" href="{% url 'logout' %}?next={% url 'scores:index' %}">Déconnexion</a></li>
                     {% else %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Se Connecter</a></li>
@@ -53,7 +53,7 @@
                     {% for tournament in tournament_list %}
                         <tr>
 
-                            <td style="font-family: Catamaran, sans-serif;font-weight: bold;font-size: 22px;"><a href="{% url 'scores:tournament_detail' tournament.id %}">{{tournament.name}}</a></td>
+                            <td style="font-family: Catamaran, sans-serif;font-weight: bold;font-size: 22px;"><a href="{% url 'scores:pool' tournament.id %}">{{tournament.name}}</a></td>
                             <td style="font-family: Catamaran, sans-serif;font-size: 22px;">{{tournament.num_pools}}</td>
                             <td style="font-family: Catamaran, sans-serif;font-size: 22px;">{{tournament.num_teams_per_pool}}</td>
                         </tr>

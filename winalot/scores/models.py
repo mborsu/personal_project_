@@ -13,7 +13,7 @@ class Tournament(models.Model):
 class Pool(models.Model):
     name = models.CharField(max_length=255)
     number = models.PositiveIntegerField()
-    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name='pools')
+    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
     def __str__(self):
         return self.name
 

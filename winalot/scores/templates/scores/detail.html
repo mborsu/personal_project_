@@ -31,12 +31,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">Poule 1</td>
-                            </tr>
-                            <tr>
-                                <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">Poule 2</td>
-                            </tr>
+                            {% for pool in tournament.pool_set.all %}
+                                <tr>
+                                    <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">{{pool.name}}</td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#" style="--bs-primary: #ff0000;--bs-primary-rgb: 255,0,0;background: #d81e05;">Retour</a>
