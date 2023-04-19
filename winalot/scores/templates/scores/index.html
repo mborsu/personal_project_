@@ -31,7 +31,7 @@
         <div class="masthead-content" style="--bs-primary: #ff0000;--bs-primary-rgb: 255,0,0;--bs-secondary: #450202;--bs-secondary-rgb: 69,2,2;--bs-success: #000000;--bs-success-rgb: 0,0,0;--bs-body-bg: var(--bs-red);">
             <div class="container">
                 <h1 class="masthead-heading mb-0"><span style="color: rgb(0, 0, 0);">Le Site pour tous les scores de Pétanque</span></h1>
-                <h2 class="masthead-subheading mb-0"><span style="color: rgb(0, 0, 0);">La vie est un jeu mais la pétanque c'est sérieux</span></h2><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#" style="--bs-primary: #ff0000;--bs-primary-rgb: 255,0,0;background: #d81e05;">Allez Fanny</a>
+                <h2 class="masthead-subheading mb-0"><span style="color: rgb(0, 0, 0);">La vie est un jeu mais la pétanque c'est sérieux</span></h2>
             </div>
         </div>
         <div class="bg-circle-1 bg-circle" style="--bs-primary: #920000;--bs-primary-rgb: 146,0,0;--bs-body-bg: var(--bs-btn-disabled-color);"></div>
@@ -39,23 +39,23 @@
         <div class="bg-circle-3 bg-circle"></div>
         <div class="bg-circle-4 bg-circle"></div>
     </header>
-    <section>
+    <section style="background: var(--bs-black);color: var(--bs-white);">
         <div class="table-responsive">
             <table class="table">
                 <thead>
                     <tr>
-                        <th style="background: var(--bs-secondary);font-family: Catamaran, sans-serif;font-weight: bold;font-size: 26px;text-align: center;border-color: var(--bs-red);">Tournois</th>
-                        <th style="background: var(--bs-secondary);font-family: Catamaran, sans-serif;font-weight: bold;font-size: 26px;text-align: center;border-color: var(--bs-red);">Nombre de poule</th>
-                        <th style="background: var(--bs-secondary);font-family: Catamaran, sans-serif;font-weight: bold;font-size: 26px;text-align: center;border-color: var(--bs-red);">Nombre d'équipe par poule</th>
-                    </tr>
+                        <th style="background: var(--bs-secondary);font-family: Catamaran, sans-serif;font-weight: bold;font-size: 26px;text-align: center;border-width: 4px;border-color: var(--bs-secondary);">Tournois</th>
+                        <th style="background: var(--bs-secondary);font-family: Catamaran, sans-serif;font-weight: bold;font-size: 26px;text-align: center;border-width: 4px;border-color: var(--bs-secondary);">Nombre de poule</th>
+                        <th style="background: var(--bs-secondary);font-family: Catamaran, sans-serif;font-weight: bold;font-size: 26px;text-align: center;border-width: 4px;border-color: var(--bs-secondary);">Nombre d'équipe par poule</th>
+                   </tr>
                 </thead>
                 <tbody>
                     {% for tournament in tournament_list %}
                         <tr>
 
-                            <td style="font-family: Catamaran, sans-serif;font-weight: bold;font-size: 22px;"><a href="{% url 'scores:pool' tournament.id %}">{{tournament.name}}</a></td>
-                            <td style="font-family: Catamaran, sans-serif;font-size: 22px;">{{tournament.num_pools}}</td>
-                            <td style="font-family: Catamaran, sans-serif;font-size: 22px;">{{tournament.num_teams_per_pool}}</td>
+                            <td style="font-family: Catamaran, sans-serif;font-weight: bold;font-size: 25px;background: #000000;color: var(--bs-table-border-color);text-align: center;border-width: 4px;border-color: var(--bs-secondary);"><a href="{% url 'scores:pool' tournament.id %}">{{tournament.name}}</a></td>
+                            <td style="font-family: Catamaran, sans-serif;font-size: 25px;background: #000000;color: var(--bs-table-border-color);text-align: center;border-width: 4px;border-color: var(--bs-secondary);">{{tournament.num_pools}}</td>
+                            <td style="font-family: Catamaran, sans-serif;font-size: 25px;background: #000000;color: var(--bs-table-border-color);text-align: center;border-width: 4px;border-color: var(--bs-secondary);">{{tournament.num_teams_per_pool}}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -68,38 +68,38 @@
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
-                        <h2 class="display-4">En parlant du site WINALOT</h2>
-                        <p><br>Bienvenue sur notre site de score de tournois de pétanque, le choix idéal pour suivre les résultats en direct et les classements de vos joueurs préférés. Nous sommes fiers de notre expansion internationale et nous sommes impatients de partager notre passion avec le monde entier.<br><br></p>
+                        <h2 class="display-4" style="color: rgb(174,7,7);margin-bottom: -12px;">En parlant du site WINALOT</h2>
+                        <p style="font-family: Catamaran, sans-serif;"><br>Bienvenue sur notre site de score de tournois de pétanque, le choix idéal pour suivre les résultats en direct et les classements de vos joueurs préférés. Nous sommes fiers de notre expansion internationale et nous sommes impatients de partager notre passion avec le monde entier.<br><br></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section>
+    <section style="background: var(--bs-black);color: var(--bs-white);">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-1">
-                    <div class="p-5"><img class="rounded-circle img-fluid" src="{% static 'scores/assets/img/jd-x-211130-038.jpg' %}" style="margin-top: 0px;padding-top: 0px;" width="1200" height="1200"></div>
+                    <div class="p-5"><img class="rounded-circle img-fluid" src="{% static 'scores/assets/img/jd-x-211130-038.jpg' %}" style="margin-top: 0px;padding-top: 0px;' %}" width="1200" height="1200"></div>
                 </div>
                 <div class="col-lg-6 order-lg-2">
                     <div class="p-5" style="padding-left: 8px;">
-                        <h2 class="display-4" style="padding-left: 0px;">Nous, les créateurs</h2>
-                        <p>Nous sommes une équipe de créateurs passionnés par la pétanque depuis notre plus jeune âge. Notre amour pour ce sport nous a inspiré à créer un site de score innovant qui permet aux fans de suivre les tournois en direct. Nous sommes déterminés à faire évoluer la pétanque à travers le monde.</p>
+                        <h2 class="display-4" style="padding-left: 0px;color: var(--bs-purple);">Nous, les créateurs</h2>
+                        <p style="font-family: Catamaran, sans-serif;">Nous sommes une équipe de créateurs passionnés par la pétanque depuis notre plus jeune âge. Notre amour pour ce sport nous a inspiré à créer un site de score innovant qui permet aux fans de suivre les tournois en direct. Nous sommes déterminés à faire évoluer la pétanque à travers le monde.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section>
+    <section style="background: #000000;">
         <div class="container">
-            <div class="row align-items-center">
+            <div class="row align-items-center" style="background: var(--bs-black);color: var(--bs-white);">
                 <div class="col-lg-6 order-lg-2">
                     <div class="p-5"><img class="rounded-circle img-fluid" src="{% static 'scores/assets/img/336784996_1192088298114503_8257474678527394424_n.jpg' %}"></div>
                 </div>
                 <div class="col-lg-6 order-lg-1">
                     <div class="p-5">
-                        <h2 class="display-4">Là où tout a commencé</h2>
-                        <p>L'idée de notre site est née au club de pétanque de Supaero, lorsque nous avons voulu garder une trace des scores de nos matchs. Nous avons rapidement réalisé que notre solution pourrait être utile pour tous les amateurs de pétanque, et avons décidé de créer un site de score accessible à tous.</p>
+                        <h2 class="display-4" style="color: var(--bs-secondary);">Là où tout a commencé</h2>
+                        <p style="font-family: Catamaran, sans-serif;">L'idée de notre site est née au club de pétanque de Supaero, lorsque nous avons voulu garder une trace des scores de nos matchs. Nous avons rapidement réalisé que notre solution pourrait être utile pour tous les amateurs de pétanque, et avons décidé de créer un site de score accessible à tous.</p>
                     </div>
                 </div>
             </div>
