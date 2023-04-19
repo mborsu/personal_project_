@@ -33,7 +33,7 @@
                         <tbody>
                             {% for pool in tournament.pool_set.all %}
                                 <tr>
-                                    <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">{{pool.name}}</td>
+                                    <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;"><a href="{% url 'scores:match' pool.id %}">{{pool.name}}</a></td>
                                 </tr>
                             {% endfor %}
                         </tbody>

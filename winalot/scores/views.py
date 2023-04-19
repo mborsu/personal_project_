@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Tournament, Match
+from django.shortcuts import get_object_or_404, render
+from .models import Pool, Tournament, Match
 from django.views import generic
 
 
@@ -23,5 +23,13 @@ class PoolView(generic.DetailView):
     def get_queryset(self):
         return Tournament.objects.order_by('name')
         
-        
 
+class MatchView(generic.DetailView):
+    template_name = 'scores/match_detail.html'
+    
+    def get_queryset(self):
+        return Pool.objects.order_by('name')
+
+    
+
+        
