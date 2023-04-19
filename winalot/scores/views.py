@@ -29,6 +29,15 @@ class MatchView(generic.DetailView):
     
     def get_queryset(self):
         return Pool.objects.order_by('name')
+    
+class CommentView(generic.DetailView):
+    template_name = 'scores/match_comment.html'
+    
+    def get_queryset(self):
+        return Match.objects.order_by('id')
+
+    
+
 
     
 
