@@ -10,6 +10,7 @@ urlpatterns = [
     path('<int:pk>/', views.PoolView.as_view(), name='pool'),
     path('pool/<int:pk>/', views.MatchView.as_view(), name='match'),
     path('pool/match/<int:pk>/', views.CommentView.as_view(), name='comment'),
+
     
 ]
 

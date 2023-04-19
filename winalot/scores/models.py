@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Tournament(models.Model):
     name = models.CharField(max_length=255)
@@ -51,3 +52,17 @@ class Match(models.Model):
     away_score = models.PositiveIntegerField(null=True, blank=True)
     pool = models.ForeignKey(Pool, on_delete=models.CASCADE, null=True)
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, null=True)
+
+
+
+class Commentaire(models.Model):
+    auteur = models.ForeignKey(User, on_delete=models.CASCADE)
+    contenu = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, null=True)
+
+    class Meta:
+        ordering = ['date']
+
+    def __str__(self):
+        return 'Commentaire {} par {}'.format(self.contenu, self.auteur)

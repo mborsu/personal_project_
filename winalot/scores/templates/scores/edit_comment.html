@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" style="background: var(--bs-black);">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>winalot 1</title>
+    <meta name="description" content="Scores Website">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Login-Form-Basic-icons.css">
+</head>
+
+<body>
+    <section style="margin-top: 76px;margin-bottom: -1px;background: linear-gradient(var(--bs-orange), #de0144);">
+        <div class="container" style="text-align: center;">
+            <form method="POST"><span> {% csrf_token %} </span>
+                <div class="form-group">
+                    <h2 class="display-6 fw-bold mb-5" style="text-align: center;margin-top: 40px;"><span class="shake animated underline pb-1" style="text-align: center;">Tu peux modifier ton commentaire içi !</span></h2>
+                    <div class="col-12 col-lg-10 mx-auto">
+                        <div class="text-center position-relative" style="margin-bottom: 50px;"></div>
+                    </div><textarea name="body" style="width: 700px;height: 86.5938px;margin-right: 27px;margin-bottom: 31px;border-radius: 7px;">{{ comment.body }}</textarea><button class="btn btn-primary" style="margin-top: -140px;color: var(--bs-gray-100);background: rgb(235,89,7);border-radius: 14px;" type="submit">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom" style="background: linear-gradient(#000000 1%, black 35%, rgb(0,0,0) 86%), var(--bs-red);border-color: var(--bs-black);">
+        <div class="container"><a class="navbar-brand" href="#"><img class="rounded img-fluid" src="assets/img/Capture_d_écran_2023-04-14_165538-removebg-preview.png" width="144" height="31"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive"></div>
+        </div>
+    </nav>
+    <footer class="py-5 bg-black">
+        <div class="container">
+            <p class="text-center text-white m-0 small">Copyright&nbsp;© WINALOT 2023</p>
+        </div>
+    </footer>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+</body>
+
+</html>
