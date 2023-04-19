@@ -22,6 +22,23 @@ class Team(models.Model):
     name = models.CharField(max_length=255)
     coach_name = models.CharField(max_length=255)
     pool = models.ForeignKey(Pool, on_delete=models.CASCADE, related_name='teams')
+    members = models.TextField()
+    
+    def get_member(self):
+        return self.members.split(',')
+    def __str__(self):
+        return self.name
+    def add_member(self, member_name):
+        members = self.get_member()
+        members.append(member_name)
+        self.members = ','.join(members)
+        self.save()
+    def remove_member(self, member_name):
+        members = self.get_players()
+        if member_name in members:
+            members.remove(member_name)
+            self.members = ','.join(members)
+            self.save()   
     def __str__(self):
         return self.name
 
@@ -34,10 +51,3 @@ class Match(models.Model):
     away_score = models.PositiveIntegerField(null=True, blank=True)
     pool = models.ForeignKey(Pool, on_delete=models.CASCADE, null=True)
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, null=True)
-
-
-class Player(models.Model):
-    name = models.CharField(max_length=255)
-    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='players')
-    def __str__(self):
-        return self.name

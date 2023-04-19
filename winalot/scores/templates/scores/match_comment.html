@@ -24,29 +24,26 @@
                 <h2 class="masthead-subheading mb-0" style="text-align: left;margin: -1px;margin-bottom: 16px;font-size: 40px;margin-top: -13px;"><span style="color: rgb(0, 0, 0);">{{match.pool.tournament.name}}, Poule {{match.pool.name}}&nbsp;</span></h2>
                 <p style="text-align: left;font-size: 30px;font-family: Catamaran, sans-serif;color: rgb(0,0,0);margin-left: 6px;margin-top: 9px;"><strong>Lieu :&nbsp;</strong><span style="font-weight: normal !important;">{{match.pool.tournament.location}}</span><br><strong>Date :&nbsp;</strong><span style="font-weight: normal !important;">{{match.date_time}}</span><br><strong>Résultat :&nbsp;</strong><span style="font-weight: normal !important;">{{match.home_score}}/{{match.away_score}}</span><br>&nbsp;<br>Ce soir c'est ... MATCH !!!<br>{{match.home_team}} affronte {{match.away_team}}&nbsp;<br><br></p>
                 <div class="table-responsive" style="font-size: 28px;color: #cbcbcb;margin-top: 27px;padding: 0px;">
-                    <p> match={{match.away_team.player}}</p>
+                    
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="background: #f74902;font-size: 33px;font-family: Catamaran, sans-serif;color: rgb(0,0,0);">Equipe 1</th>
-                                <th style="font-size: 33px;background: #f74902;color: rgb(0,0,0);">Equipe 2</th>
+                                <th style="background: #f74902;font-size: 33px;font-family: Catamaran, sans-serif;color: rgb(0,0,0);">{{match.home_team.name}}</th>
+                                <th style="font-size: 33px;background: #f74902;color: rgb(0,0,0);">{{match.away_team.name}}</th>
                             </tr>
                         </thead>
                 
                         <tbody>
-                            
-                            {% for player in match.home_team.player_set.all %}
-                                <tr>
-                                    <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">{{player.name}}</td>
-                                </tr>
-                            {% endfor %}
-
-                            {% for player in match.away_team.player_set.all %}
-                                <tr>
-                                    <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">{{player.name}}</td>
-                                </tr>
-                            {% endfor %}
+                            <tr>
+                                <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">Joueurs : {{match.home_team.members}}</td>
+                                <td style="background: var(--bs-black);font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;color: #e1dada;">Joueurs : {{match.away_team.members}}</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--bs-black);color: #e1dada;font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;">Entraîneur : {{match.home_team.coach_name}}</td>
+                                <td style="background: var(--bs-black);font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;color: #e1dada;">Entraîneur : {{match.away_team.coach_name}}</td>
+                            </tr>
                         </tbody>
+
                     </table>
                 </div><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#" style="--bs-primary: #ff0000;--bs-primary-rgb: 255,0,0;background: #d81e05;">Retour</a>
                 <p style="font-family: Catamaran, sans-serif;font-size: 27px;margin-top: 45px;">Carreau Sec ? Commentes le Match avec les collègues !</p>
