@@ -1,7 +1,8 @@
-from django.shortcuts import get_object_or_404, render
-from .models import Pool, Tournament, Match
+from django.shortcuts import get_object_or_404, render, redirect
+from .models import Pool, Tournament, Match, Commentaire
 from django.views import generic
-from .models import Commentaire
+from django.urls import reverse, reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 
@@ -50,3 +51,20 @@ class CommentView(generic.DetailView):
                                   match=self.get_object())
         new_comment.save()
         return self.get(self, request, *args, **kwargs)
+    
+from django.urls import reverse
+from django.shortcuts import redirect
+
+from django.shortcuts import redirect
+from django.urls import reverse_lazy
+
+class EditCommentView(LoginRequiredMixin, generic.UpdateView):
+    model = Commentaire
+    fields = ['contenu']
+    template_name = 'scores/edit_comment.html'
+    success_url = reverse_lazy('scores:comment')
+
+    def get_success_url(self):
+        return reverse('scores:comment', args=[self.object.match.pk])
+    
+    

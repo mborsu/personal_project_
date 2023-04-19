@@ -77,7 +77,21 @@
             </div><span> {% endif %} 
                 {% for comment in comments %} </span>
                     <div class="col" style="width: 800px;margin: auto;">
-                        <h1 style="text-align: left;color: var(--bs-indigo);font-weight: bold;font-size: 24.89px;">{{comment.auteur}}<span style="margin-left: 12px;color: var(--bs-gray);font-size: 16.89px;text-align: center;">{{comment.date}}<span style="margin-left: 11px;font-size: 12.89px;color: var(--bs-red);">edit</span></span></h1>
+                        
+                        <h1 style="text-align: left;color: var(--bs-indigo);font-weight: bold;font-size: 24.89px;">{{comment.auteur}}<span style="margin-left: 12px;color: var(--bs-gray);font-size: 16.89px;text-align: center;">{{comment.date}}
+         
+                        
+                        {% if user == comment.auteur %}
+
+
+                            <a href="{% url 'scores:edit_comment' comment.id %}" style="margin-left: 11px;font-size: 12.89px;color: var(--bs-red);">edit</a>
+                        
+                        
+                        {% endif %}
+    
+                        </span></h1>
+                        
+                        
                         <p style="text-align: left;">{{comment.contenu}}</p>
                         <hr>
                     </div>
