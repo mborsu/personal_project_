@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'scores/assets/css/Login-Form-Basic-icons.css'%}">
 </head>
 
-<body>
+<body style="background: #f9362a;">
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom" style="background: linear-gradient(#000000 1%, black 35%, rgb(0,0,0) 86%), var(--bs-red);border-color: var(--bs-black);">
         <div class="container"><a class="navbar-brand" href="#"><img class="rounded img-fluid" src="{% static 'scores/assets/img/Capture_d_écran_2023-04-14_165538-removebg-preview.png' %}" width="144" height="31"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -63,14 +63,14 @@
         <div class="bg-circle-3 bg-circle"></div>
         <div class="bg-circle-4 bg-circle"></div>
     </header>
-    <section style="margin-top: -87px;margin-bottom: 48px;background: linear-gradient(#f9482a 12%, #fe6801 88%);">
+    <section style="margin-top: -87px;margin-bottom: -20px;background: linear-gradient(#f9362a 0%, #fe6801 80%);">
         <div class="container" style="text-align: center;"><span> {% if user.is_authenticated %} </span>
             <form method="POST"><span> {% csrf_token %} </span>
                 <div class="form-group">
                     <h1 style="height: 50.25px;font-size: 26.88px;">Commentez le match !</h1><textarea name="contenu" style="width: 700px;height: 86.5938px;margin-right: 27px;margin-bottom: 31px;border-radius: 9px;margin-top: 40px;" placeholder="Oh Belle... Tu  veux commenter le match un peu ?"></textarea><button class="btn btn-primary" style="margin-top: -140px;" type="submit">Publier</button>
                 </div>
             </form><span> {% else %} </span>
-            <div class="text-white bg-primary border-0 border-primary d-flex flex-column justify-content-between flex-lg-row border rounded p-4 p-md-5" style="--bs-primary: #8e7581;--bs-primary-rgb: 142,117,129;--bs-body-bg: var(--bs-purple);color: var(--bs-purple);background: var(--bs-blue);margin: 60px;height: 84px;">
+            <div class="text-white bg-primary border-0 border-primary d-flex flex-column justify-content-between flex-lg-row border rounded p-4 p-md-5" style="--bs-primary: #f9362a;--bs-primary-rgb: 200,200,200;--bs-body-bg: var(--bs-danger);color: var(--bs-danger);background: var(--bs-danger);margin: 60px;height: 84px; margin-top: 100px">
                 <h1 style="font-size: 21.88px;color: var(--bs-black);margin-bottom: 0px;padding: 0px;margin-top: -8px;">Pas Content ? Connectes toi pour commenter !</h1>
                 <div class="pb-2 pb-lg-1"></div>
                 <div class="my-2"><a class="btn btn-light fs-5 py-2 px-4" role="button" href="{% url 'login' %}?next={% url 'scores:index' %}" style="margin-right: -14px;margin-top: -37px;background: var(--bs-orange);border-radius: 18px;">Connexion</a></div>
@@ -78,16 +78,12 @@
                 {% for comment in comments %} </span>
                     <div class="col" style="width: 800px;margin: auto;">
                         
-                        <h1 style="text-align: left;color: var(--bs-indigo);font-weight: bold;font-size: 24.89px;">{{comment.auteur}}<span style="margin-left: 12px;color: var(--bs-gray);font-size: 16.89px;text-align: center;">{{comment.date}}
-         
-                        
-                        {% if user == comment.auteur %}
-
-
-                            <a href="{% url 'scores:edit_comment' comment.id %}" style="margin-left: 11px;font-size: 12.89px;color: var(--bs-red);">edit</a>
-                        
-                        
-                        {% endif %}
+                        <h1 style="text-align: left;color: var(--bs-black);font-weight: bold;font-size: 14px;">{{comment.auteur}}<span style="margin-left: 12px;color: #d20101;font-size: 14px;text-align: center;">{{comment.date}}
+                            {% if user == comment.auteur %} 
+                            
+                                <a href="{% url 'scores:edit_comment' comment.id %}" style="margin-left: 11px;font-size: 14px;color: #ffc700;">edit</a> 
+                            
+                            {% endif %}
     
                         </span></h1>
                         
@@ -103,7 +99,7 @@
         <div class="container">
             <p class="text-center text-white m-0 small">Copyright&nbsp;© WINALOT 2023</p>
         </div>
-    </footer><a href="#">Log In</a>
+    </footer>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
