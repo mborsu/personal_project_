@@ -64,35 +64,34 @@
         <div class="bg-circle-4 bg-circle"></div>
     </header>
     <section style="margin-top: -87px;margin-bottom: -20px;background: linear-gradient(#f9362a 0%, #fe6801 80%);">
-        <div class="container" style="text-align: center;"><span> {% if user.is_authenticated %} </span>
-            <form method="POST"><span> {% csrf_token %} </span>
-                <div class="form-group">
-                    <h1 style="height: 50.25px;font-size: 26.88px;">Commentez le match !</h1><textarea name="contenu" style="width: 700px;height: 86.5938px;margin-right: 27px;margin-bottom: 31px;border-radius: 9px;margin-top: 40px;" placeholder="Oh Belle... Tu  veux commenter le match un peu ?"></textarea><button class="btn btn-primary" style="margin-top: -140px;" type="submit">Publier</button>
-                </div>
-            </form><span> {% else %} </span>
+        <div class="container" style="text-align: center;">
+          {% if user.is_authenticated %}
+            <form method="POST">
+              {% csrf_token %}
+              <div class="form-group">
+                <h1 style="height: 50.25px;font-size: 26.88px;">Commentez le match !</h1>
+                <textarea name="contenu" style="width: 700px;height: 86.5938px;margin-right: 27px;margin-bottom: 31px;border-radius: 9px;margin-top: 40px;" placeholder="Oh Belle... Tu  veux commenter le match un peu ?"></textarea>
+                <button class="btn btn-primary" style="margin-top: -140px;" type="submit">Publier</button>
+              </div>
+            </form>
+          {% else %}
             <div class="text-white bg-primary border-0 border-primary d-flex flex-column justify-content-between flex-lg-row border rounded p-4 p-md-5" style="--bs-primary: #f9362a;--bs-primary-rgb: 200,200,200;--bs-body-bg: var(--bs-danger);color: var(--bs-danger);background: var(--bs-danger);margin: 60px;height: 84px; margin-top: 100px">
-                <h1 style="font-size: 21.88px;color: var(--bs-black);margin-bottom: 0px;padding: 0px;margin-top: -8px;">Pas Content ? Connectes toi pour commenter !</h1>
-                <div class="pb-2 pb-lg-1"></div>
-                <div class="my-2"><a class="btn btn-light fs-5 py-2 px-4" role="button" href="{% url 'login' %}?next={% url 'scores:index' %}" style="margin-right: -14px;margin-top: -37px;background: var(--bs-orange);border-radius: 18px;">Connexion</a></div>
-            </div><span> {% endif %} 
-                {% for comment in comments %} </span>
-                    <div class="col" style="width: 800px;margin: auto;">
-                        
-                        <h1 style="text-align: left;color: var(--bs-black);font-weight: bold;font-size: 14px;">{{comment.auteur}}<span style="margin-left: 12px;color: #d20101;font-size: 14px;text-align: center;">{{comment.date}}
-                            {% if user == comment.auteur %} 
-                            
-                                <a href="{% url 'scores:edit_comment' comment.id %}" style="margin-left: 11px;font-size: 14px;color: #ffc700;">edit</a> 
-                            
-                            {% endif %}
-    
-                        </span></h1>
-                        
-                        
-                        <p style="text-align: left;">{{comment.contenu}}</p>
-                        <hr>
-                    </div>
-                    <span> 
-                {%endfor%} </span>
+              <h1 style="font-size: 21.88px;color: var(--bs-black);margin-bottom: 0px;padding: 0px;margin-top: -8px;">Pas Content ? Connectes toi pour commenter !</h1>
+              <div class="pb-2 pb-lg-1"></div>
+              <div class="my-2"><a class="btn btn-light fs-5 py-2 px-4" role="button" href="{% url 'login' %}?next={% url 'scores:index' %}" style="margin-right: -14px;margin-top: -37px;background: var(--bs-orange);border-radius: 18px;">Connexion</a></div>
+            </div>
+          {% endif %}
+          {% for comment in comments %}
+            <div class="col" style="width: 800px;margin: auto;"> 
+              <h1 style="text-align: left;color: var(--bs-black);font-weight: bold;font-size: 14px;">{{comment.auteur}}<span style="margin-left: 12px;color: #d20101;font-size: 14px;text-align: center;">{{comment.date}}
+                {% if user == comment.auteur %}
+                  <a href="{% url 'scores:edit_comment' comment.id %}" style="margin-left: 11px;font-size: 14px;color: #ffc700;">edit</a> 
+                {% endif %}
+              </span></h1>
+              <p style="text-align: left;">{{comment.contenu}}</p>
+              <hr>
+            </div>
+          {% endfor %}
         </div>
     </section>
     <footer class="py-5 bg-black">
