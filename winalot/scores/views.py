@@ -25,6 +25,13 @@ class MatchView(generic.DetailView):
     model = Pool
     template_name = 'scores/match_detail.html'
     
+    def get_context_data(self, **kwargs):
+        # Gets the context data to be used for rendering the view
+        context = super().get_context_data(**kwargs)
+        pool = self.object
+        teams = pool.teams.order_by('ranking')
+        context['teams'] = teams
+        return context
     
 class CommentView(generic.DetailView):
     # Displays the comments for a single match and allows users to add new comments
@@ -57,3 +64,4 @@ class EditCommentView(LoginRequiredMixin, generic.UpdateView):
     def get_success_url(self):
         # Redirect to the comments page for the match that this comment belongs to
         return reverse('scores:comment', args=[self.object.match.pk])
+

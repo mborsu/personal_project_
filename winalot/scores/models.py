@@ -3,12 +3,12 @@ from django.contrib.auth.models import User
 
 # Represents a tournament
 class Tournament(models.Model):
-    name = models.CharField(max_length=255)                   # Name of the tournament
-    location = models.CharField(max_length=255, blank=True)   # Location of the tournament
-    start_date = models.DateTimeField(null=True, blank=True)  # Start date of the tournament
-    end_date = models.DateTimeField(null=True, blank=True)    # End date of the tournament
-    num_pools = models.PositiveIntegerField()                 # Number of pools in the tournament
-    num_teams_per_pool = models.PositiveIntegerField()        # Number of teams per pool in the tournament
+    name = models.CharField(max_length=255)                   
+    location = models.CharField(max_length=255, blank=True)  
+    start_date = models.DateTimeField(null=True, blank=True)  
+    end_date = models.DateTimeField(null=True, blank=True)   
+    num_pools = models.PositiveIntegerField()                
+    num_teams_per_pool = models.PositiveIntegerField()       
 
     def __str__(self):
         return self.name
@@ -16,9 +16,9 @@ class Tournament(models.Model):
 
 # Represents a pool within a tournament
 class Pool(models.Model):
-    name = models.CharField(max_length=255)            # Name of the pool
-    number = models.PositiveIntegerField()             # Number of the pool
-    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)  # Tournament that this pool belongs to
+    name = models.CharField(max_length=255)           
+    number = models.PositiveIntegerField()            
+    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)  
 
     def __str__(self):
         return self.name
@@ -26,10 +26,12 @@ class Pool(models.Model):
 
 # Represents a team in a pool
 class Team(models.Model):
-    name = models.CharField(max_length=255)           # Name of the team
-    coach_name = models.CharField(max_length=255)     # Name of the coach
-    pool = models.ForeignKey(Pool, on_delete=models.CASCADE, related_name='teams') # Pool that this team belongs to
-    members = models.TextField()                      # Members of the team
+    name = models.CharField(max_length=255)           
+    coach_name = models.CharField(max_length=255)     
+    pool = models.ForeignKey(Pool, on_delete=models.CASCADE, related_name='teams') 
+    members = models.TextField()             
+    ranking = models.PositiveIntegerField(default=0)  
+         
 
     # Return a list of members
     def get_members(self):

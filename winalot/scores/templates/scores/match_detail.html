@@ -31,12 +31,12 @@
         <div class="masthead-content" style="--bs-primary: #ff0000;--bs-primary-rgb: 255,0,0;--bs-secondary: #450202;--bs-secondary-rgb: 69,2,2;--bs-success: #000000;--bs-success-rgb: 0,0,0;--bs-body-bg: var(--bs-red);">
             <div class="container">
                 <h2 class="masthead-subheading mb-0" style="text-align: left;margin: -1px;margin-bottom: 0px;"><span style="color: rgb(0, 0, 0);"> {{pool.tournament.name}}</span></h2>
-                <p style="text-align: left;font-size: 30px;font-weight: bold;font-family: Catamaran, sans-serif;color: rgb(0,0,0);margin-left: 6px;">Poule {{pool.name}}<br>Dates : <span style="font-weight: normal !important;">Du {{pool.tournament.start_date}} Au {{pool.tournament.end_date}}</span><br>Lieu : <span style="font-weight: normal !important;">{{pool.tournament.location}}</span></p>
+                <p style="text-align: left;font-size: 30px;font-weight: bold;font-family: Catamaran, sans-serif;color: rgb(0,0,0);margin-left: 6px;">Poule {{pool.name}}<br>Dates : <span style="font-weight: normal !important;">Du {{pool.tournament.start_date}} Au {{pool.tournament.end_date}}</span><br>Lieu : <span style="font-weight: normal !important;">{{pool.tournament.location}}</span><br> Liste des Matchs</p>
                 <div class="table-responsive" style="font-size: 28px;color: #cbcbcb;margin-top: 27px;padding: 0px;">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th style="background: #f74902;font-size: 33px;font-family: Catamaran, sans-serif;color: rgb(0,0,0);">Equipe</th>
+                                <th style="background: #f74902;font-size: 33px;font-family: Catamaran, sans-serif;color: rgb(0,0,0);">Matchs</th>
                                 <th style="font-size: 33px;background: #f74902;color: rgb(0,0,0);">Date</th>
                                 <th style="font-size: 33px;background: #f74902;color: rgb(0,0,0);">Heure</th>
                                 <th style="font-size: 33px;background: #f74902;color: rgb(0,0,0);">Score</th>
@@ -53,6 +53,25 @@
                             {% endfor %}
                         </tbody>
                     </table>
+                    <p style="text-align: left;font-size: 30px;font-weight: bold;font-family: Catamaran, sans-serif;color: rgb(0,0,0);margin-left: 6px;">Leaderboard</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="background: #f74902;font-size: 33px;font-family: Catamaran, sans-serif;color: rgb(0,0,0);">Classement </th>
+                                <th style="background: #f74902;font-size: 33px;font-family: Catamaran, sans-serif;color: rgb(0,0,0);">Equipe </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for team in teams %}
+                                <tr>
+                                    <td style="background: var(--bs-black);font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;color: #e1dada;">{{team.ranking}}</td>
+                                    <td style="background: var(--bs-black);font-size: 28px;font-family: Catamaran, sans-serif;border-width: 5px;border-color: #f74902;color: #e1dada;">{{team.name}}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+
                 </div><a class="btn btn-primary btn-xl rounded-pill mt-5" role="button" href="#" style="--bs-primary: #ff0000;--bs-primary-rgb: 255,0,0;background: #d81e05;" value="Previous Page" onClick="javascript:history.go(-1);">Retour</a>
             </div>
         </div>
