@@ -43,8 +43,7 @@
                 <tbody>
                     {% for tournament in tournament_list %}
                         <tr>
-
-                            <td style="font-family: Catamaran, sans-serif;font-weight: bold;font-size: 25px;background: #000000;color: var(--bs-table-border-color);text-align: center;border-width: 4px;border-color: var(--bs-secondary);"><a href="{% url 'scores:pool' tournament.id %}">{{tournament.name}}</a></td>
+                            <td style="font-family: Catamaran, sans-serif;font-size: 25px;background: #000000;color: var(--bs-table-border-color);text-align: center;border-width: 4px;border-color: var(--bs-secondary);"><a href="{% url 'scores:pool' tournament.id %}">{{tournament.name}}</a></td>
                             <td style="font-family: Catamaran, sans-serif;font-size: 25px;background: #000000;color: var(--bs-table-border-color);text-align: center;border-width: 4px;border-color: var(--bs-secondary);">{{tournament.num_pools}}</td>
                             <td style="font-family: Catamaran, sans-serif;font-size: 25px;background: #000000;color: var(--bs-table-border-color);text-align: center;border-width: 4px;border-color: var(--bs-secondary);">{{tournament.num_teams_per_pool}}</td>
                         </tr>

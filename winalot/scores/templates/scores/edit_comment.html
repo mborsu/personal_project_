@@ -4,15 +4,15 @@
 {% block content %}
 
 <body>
-    <section style="margin-top: 76px;margin-bottom: -20px;background: linear-gradient(var(--bs-orange), #de0144);">
+    <section style="margin-top: 50px;margin-bottom: -20px;background: linear-gradient(var(--bs-orange), #de0144);">
         <div class="container" style="text-align: center;">
             <form method="POST"><span> {% csrf_token %} </span>
                 <div class="form-group">
-                    <h2 class="display-6 fw-bold mb-5" style="text-align: center;margin-top: 40px;"><span class="shake animated underline pb-1" style="text-align: center;"><br><br>Tu peux modifier ton commentaire içi !<br><br></span></h2>
+                    <h2 class="display-6 fw-bold mb-5" style="text-align: center;margin-top: 40px;"><span class="shake animated underline pb-1" style="text-align: center;"><br><br>Tu peux modifier ton commentaire içi !<br><br><br></span></h2>
                     <div class="col-12 col-lg-10 mx-auto">
                         <div class="text-center position-relative" style="margin-bottom: 50px;"></div>
                     </div><textarea name="contenu" style="width: 700px;height: 86.5938px;margin-right: 27px;margin-bottom: 31px;border-radius: 7px;">{{ comment.contenu }}</textarea><button class="btn btn-primary" style="margin-top: -140px;color: var(--bs-gray-100);background: rgb(235,89,7);border-radius: 14px;" type="submit">Enregistrer</button>
-                    <p> <br><br><br><br><br><br><br><br> </p>
+                    <p> <br><br><br><br><br><br><br><br><br> </p>
                 </div>
             </form>
          </div>
