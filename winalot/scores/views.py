@@ -33,8 +33,6 @@ class MatchView(generic.DetailView):
         context['teams'] = teams
         return context
     
-    
-    
 class CommentView(generic.DetailView):
     # Displays the comments for a single match and allows users to add new comments
     model = Match
