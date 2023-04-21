@@ -8,9 +8,15 @@
         <div class="container"><a class="navbar-brand" href="#"><img class="rounded img-fluid" src="{% static 'scores/assets/img/Capture_d_écran_2023-04-14_165538-removebg-preview.png' %}" width="144" height="31"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbarResponsive"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
+                                      
+                  <li class="nav-item" style="margin-right: 50px"><a class="nav-link active" href="{% url 'scores:index' %}">Accueil</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{% url 'scores:pool' match.pool.tournament.id%}">Poules</a></li>
+                  <li class="nav-item"><a class="nav-link" href="{% url 'scores:match' match.tournament.id%}">Matchs</a></li>
+                  <li class="nav-item" style="margin-right: 100px"><a class="nav-link active" href="">Résultat</a></li>
+
                     {% if user.is_authenticated %}
-                        <p class="navbar-text" style="margin-right: 20px;">Pétanquement Votre, {{ user.username }}</p>
-                        <li class="nav-item"style="margin-top: 4px;"><a class="nav-link" href="{% url 'logout' %}?next={% url 'scores:index' %}">Déconnexion</a></li>
+                        <p class="navbar-text" style="margin-top: -4px">Pétanquement Votre, {{ user.username }}</p>
+                        <li class="nav-item"style="margin-top: 0px;"><a class="nav-link" href="{% url 'logout' %}?next={% url 'scores:index' %}">Déconnexion</a></li>
                     {% else %}
                         <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Se Connecter</a></li>
                     {% endif %}
@@ -76,7 +82,7 @@
             <div class="col" style="width: 800px;margin: auto;"> 
               <h1 style="text-align: left;color: var(--bs-black);font-weight: bold;font-size: 14px;">{{comment.auteur}}<span style="margin-left: 12px;color: #d20101;font-size: 14px;text-align: center;">{{comment.date}}
                 {% if user == comment.auteur %}
-                  <a href="{% url 'scores:edit_comment' comment.id %}" style="margin-left: 11px;font-size: 14px;color: #ffc700;">edit</a> 
+                  <a href="{% url 'scores:edit_comment' comment.id %}" style="margin-left: 11px;font-size: 14px;color: #ffc700;">modifier</a> 
                 {% endif %}
               </span></h1>
               <p style="text-align: left;">{{comment.contenu}}</p>
