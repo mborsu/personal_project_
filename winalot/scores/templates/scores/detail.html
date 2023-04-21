@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-{% load static %}
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>winalot 1</title>
-    <meta name="description" content="Scores Website">
-    <link rel="stylesheet" href="{% static 'scores/assets/bootstrap/css/bootstrap.min.css'%}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900&amp;display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&amp;display=swap">
-    <link rel="stylesheet" href="{% static 'scores/assets/css/Login-Form-Basic-icons.css'%}">
-</head>
+{% extends 'scores/base.html' %}
+
+{%load static%}
+{% block content %}
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark navbar-custom" style="background: linear-gradient(#000000 1%, black 35%, rgb(0,0,0) 86%), var(--bs-red);border-color: var(--bs-black);">
@@ -55,12 +46,4 @@
         <div class="bg-circle-3 bg-circle"></div>
         <div class="bg-circle-4 bg-circle"></div>
     </header>
-    <footer class="py-5 bg-black">
-        <div class="container">
-            <p class="text-center text-white m-0 small">Copyright&nbsp;© WINALOT 2023</p>
-        </div>
-    </footer><a href="#">Log In</a>
-    <script src="{% static 'scores/assets/bootstrap/js/bootstrap.min.js'%}"></script>
-</body>
-
-</html>
+{% endblock %}
